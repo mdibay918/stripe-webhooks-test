@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script> 
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="/lang-logo.png">
+    </a>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+	    <h1>STRIPE EVENT PAYLOAD </h1>
+    </div>
+    <div class="col-md-12">
+	    <code class="prettyprint">
+		  <%= data%> 
+	    </code>
+	    
+    </div>
+  </div> <!-- row -->
+</div>
+
+
+</body>
+</html>
