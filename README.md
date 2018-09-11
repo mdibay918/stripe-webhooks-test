@@ -13,8 +13,8 @@
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd stripe-test-webhooks 
+$ git clone git@github.com:mdibay918/stripe-webhooks-test.git
+$ cd stripe-webhooks-test
 $ npm install
 $ npm start
 ```
