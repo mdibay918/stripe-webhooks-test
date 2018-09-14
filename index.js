@@ -8,17 +8,27 @@ app.set('views', path.join(__dirname, 'views'))
 // Retrieve the raw body as a buffer and match all content types:
 app.use(require('body-parser').raw({type: '*/*'}));
 
-var payload  = JSON.parse("{}")
+var data = [];
 
 app.post('/test-webhook', function(request, response) {
   // Retrieve the request's body and parse it as JSON:
- payload = JSON.parse(request.body)
-  console.log("RECEVIED NEW EVENT: " + payload)
+  var payload = JSON.parse(request.body);
+  data.unshift({
+    "time": new Date(),
+    "payload": payload,
+    "type": payload.type
+  });
   // Do something with event_json
   response.send(200)
 });
 
-app.get('/', (req, res) => {
-	res.render('pages/index', {'data':JSON.stringify(payload)})
+app.get('/reset', function(request, response) {
+  data.splice(0);
+  response.redirect('/');
 });
+
+app.get('/', (req, res) => {
+	res.render('pages/index', {'data':data})
+});
+
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
